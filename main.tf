@@ -175,4 +175,7 @@ resource "google_compute_instance" "gke_bastion_host" {
       sudo terraform apply -auto-approve -var="project=$(sudo gcloud secrets versions access 1  --secret="project-id")" -var="path_to_json=sa.json" -var="image_name=$(sudo gcloud secrets versions access 1  --secret="image-name")"
     EOF
   }
+  depends_on = [
+    google_container_cluster.gke_cluster
+  ]
 }
