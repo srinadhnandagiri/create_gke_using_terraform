@@ -10,3 +10,10 @@ cidr_range = "<subnet-cidr>"
 bastion_host_service_account = "<service-account-of-bastion>"
 
 Here Service acoount created by bastion is crucial because it should contain access to gke cluster for deploying objects to gke .
+
+Also here i have used 3 secrets created in Secret Manager in GCP from which i am fetching creds like project id , Service Account 
+and Image name which i pass in Start up script in bastion host .
+
+By this way i can securely pass secrets .
+
+At the end GCP Loadbalancer is created which we can hit with http://<lb-ip> to access nginx 
